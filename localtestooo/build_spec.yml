@@ -3,18 +3,18 @@ component: build
 timeoutInSeconds: 6000
 runAs: root
 shell: bash
-env:
-  variables:
-    "testEnv" : "testValue1"
-  exportedVariables:
-    - testEnv
-    - patch_number
-    - build_Result
-    - test_env
-    - test_env1
-
-inputArtifacts:
-  - name: hello-dev-jar
-    location: /workspace/Source/hello123.class
 
 steps:
+- type: VulnerabilityAudit
+  name: "Vulnerability Audit Step"
+  configuration:
+    buildType: maven
+    pomFilePath: pom.xml
+    packagesToIgnore:
+      - com.oracle.*
+      - org.apache.logging
+    maxPermissibleCvssV2Score: 5.0
+    maxPermissibleCvssV3Score: 6.2
+    knowledgeBaseId: ocid1.knowledgeBase.oc1..aaaaaaaaanb7pf7mjyey3ld4uffrtg4testumkcfgkv2j57kwr5jusample
+  vulnerabilityAuditCompartmentId: ocid1.compartment.oc1..aaaaaaaaanb7pf7mjyey3ld4uffrtg4testumkcfgkv2j57kwr5jusample
+  vulnerabilityAuditName: report1
