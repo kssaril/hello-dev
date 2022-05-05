@@ -11,6 +11,7 @@ steps:
   - type: Command
     name: "Build Source"
     command: |
+      printenv
       cat /workspace/script/Step0.sh
       echo $testEnv
       mvn1 clean test
