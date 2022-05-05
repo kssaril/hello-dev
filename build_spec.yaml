@@ -14,6 +14,9 @@ steps:
       ls
       echo "test"
       set
+      echo "-------------"
+      cat /workspace/script/StepStep_CommandV1_1.sh
+      echo "-------------"
       cat /workspace/script/Step0.sh
     onFailure:
       - type: Command
