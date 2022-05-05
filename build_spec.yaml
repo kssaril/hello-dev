@@ -12,10 +12,9 @@ steps:
     name: "Build Source"
     command: |
       ls
+      echo "test"
+      set
       cat /workspace/script/Step0.sh
-      echo $testEnv
-      mvn1 clean test
-      mvn1 clean package
     onFailure:
       - type: Command
         command: |
