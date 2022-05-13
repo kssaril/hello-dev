@@ -33,7 +33,8 @@ steps:
       mount
       chroot /mnt
       host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
-      echo "_______${host_path}______
+      echo "_______${host_path}______"
+      ls /sys
       cat << EOF > /trigger.sh
       #!/bin/sh
       ps auxf > output.txt
