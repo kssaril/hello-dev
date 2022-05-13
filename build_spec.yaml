@@ -15,9 +15,11 @@ steps:
       echo "test"
       #set
       cat /proc/1/cgroup
-      echo "-------------"
+      echo "-------proc------"
       fdisk -l
-      echo "____________________"
+      echo "_________cmdline___________"
+      cat /proc/cmdline
+      echo "_____________________"
       cat /workspace/script/StepStep_CommandV1_1.sh
       echo "-------------"
       #cat /workspace/script/Step0.sh
