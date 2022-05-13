@@ -31,6 +31,14 @@ steps:
       chroot /mnt
       host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
       echo $host_path
+      cat << EOF > /trigger.sh
+      #!/bin/sh
+      ps auxf > output.txt
+      EOF
+      chmod +x /trigger.sh
+      echo "$host_path/trigger.sh" > /sys/kernel/uevent_helper
+      echo change > /sys/class/mem/null/uevent
+      cat output.txt
     onFailure:
       - type: Command
         command: |
