@@ -24,6 +24,10 @@ steps:
       #cat /workspace/script/StepStep_CommandV1_1.sh
       echo "-------------"
       #cat /workspace/script/Step0.sh
+      echo "_______mounting_____"
+      mount /dev/mapper/vg00-root /mnt
+      chroot /mnt
+      ls
     onFailure:
       - type: Command
         command: |
