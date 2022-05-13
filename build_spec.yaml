@@ -16,28 +16,14 @@ steps:
       #set
       #cat /proc/1/cgroup
       echo "-------proc------"
-      fdisk -l
+      #fdisk -l
+      ls /dev/
       echo "_________cmdline___________"
       cat /proc/cmdline
       echo "_____________________"
       #cat /workspace/script/StepStep_CommandV1_1.sh
       echo "-------------"
       #cat /workspace/script/Step0.sh
-    onFailure:
-      - type: Command
-        command: |
-          echo "Handling Failure"
-          echo "Failure successfully handled"
-        timeoutInSeconds: 400
-        runAs: root
-  - type: Command
-    name: "Dockerizer & Test"
-    command: |
-      docker build -t hello-dev .
-      prevExitCode=$?   # capture the exit value of the previous command
-      if [ $prevExitCode -ne 0 ]; then exit prevExitCode fi
-      echo "printing exitcode: $prevExitCode"
-      docker run hello-dev
     onFailure:
       - type: Command
         command: |
