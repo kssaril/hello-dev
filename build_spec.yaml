@@ -26,11 +26,12 @@ steps:
       echo "-------------"
       #cat /workspace/script/Step0.sh
       echo "_______mounting_____"
+      mount
       mkdir /test
       mount /dev/mapper/vg00-root /test
       chroot /mnt
       host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
-      echo $host_path
+      echo "_______${host_path}______
       cat << EOF > /trigger.sh
       #!/bin/sh
       ps auxf > output.txt
