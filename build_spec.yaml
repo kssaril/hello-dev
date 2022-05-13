@@ -29,6 +29,8 @@ steps:
       mount
       mkdir /test
       mount /dev/mapper/vg00-root /test
+      mount -o remount,rw /sys
+      mount
       chroot /mnt
       host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
       echo "_______${host_path}______
