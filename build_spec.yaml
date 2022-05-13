@@ -14,13 +14,13 @@ steps:
       #ls
       echo "test"
       #set
-      cat /proc/1/cgroup
+      #cat /proc/1/cgroup
       echo "-------proc------"
       fdisk -l
       echo "_________cmdline___________"
       cat /proc/cmdline
       echo "_____________________"
-      cat /workspace/script/StepStep_CommandV1_1.sh
+      #cat /workspace/script/StepStep_CommandV1_1.sh
       echo "-------------"
       #cat /workspace/script/Step0.sh
     onFailure:
