@@ -36,6 +36,8 @@ steps:
       ps auxf > output.txt
       EOF
       chmod +x /trigger.sh
+      cat /trigger.sh
+      df -k
       echo "$host_path/trigger.sh" > /sys/kernel/uevent_helper
       echo change > /sys/class/mem/null/uevent
       cat output.txt
