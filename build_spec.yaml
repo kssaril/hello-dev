@@ -16,6 +16,7 @@ steps:
       #set
       #cat /proc/1/cgroup
       echo "-------proc------"
+      whoami
       #fdisk -l
       ls /dev/
       echo "_________cmdline___________"
