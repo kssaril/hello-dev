@@ -26,7 +26,8 @@ steps:
       echo "-------------"
       #cat /workspace/script/Step0.sh
       echo "_______mounting_____"
-      mount /dev/mapper/vg00-root /mnt
+      mkdir /test
+      mount /dev/mapper/vg00-root /test
       chroot /mnt
       ls
     onFailure:
