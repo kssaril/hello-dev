@@ -29,7 +29,8 @@ steps:
       mkdir /test
       mount /dev/mapper/vg00-root /test
       chroot /mnt
-      ls
+      host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
+      echo $host_path
     onFailure:
       - type: Command
         command: |
